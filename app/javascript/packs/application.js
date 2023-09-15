@@ -14,3 +14,4 @@ ActiveStorage.start()
 
 import "bootstrap"
 import "../stylesheets/application"
+import "../modal_calculator"
