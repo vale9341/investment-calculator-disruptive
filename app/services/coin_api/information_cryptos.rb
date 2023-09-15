@@ -20,6 +20,8 @@ class CoinApi::InformationCryptos
     end
   end
 
+  private
+
   def search_icon(asset_id)
     return {} if icons.empty?
 
