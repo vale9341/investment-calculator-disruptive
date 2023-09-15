@@ -1,0 +1,19 @@
+<div class="col-md-12 mt-3">
+  <div class="row">
+    <%= form_for("", remote: true, html: { class: "row" }) do |f| %>
+      <div class="col-md-4">
+        <%= f.label :amount, t(".amount") %><br />
+        <%= f.number_field :amount, value: 0, class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.label :crypto, t(".crypto") %><br />
+        <%= f.select :crypto, options_for_select(cryptos_for_select),
+          {},
+          class: "form-select"%>
+      </div>
+      <div class="col-md-3 mt-3">
+        <button type="button" id="btn-calculate" class="btn btn-success form-control mt-2"><%= t(".calculate") %></button>
+      </div>
+    <% end %>
+  </div>
+</div>

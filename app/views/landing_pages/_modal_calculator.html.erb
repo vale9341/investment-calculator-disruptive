@@ -1,0 +1,22 @@
+<div class="modal fade" id="modal-calculator" tabindex="-1" aria-labelledby="modalCalculatorLabel" aria-hidden="true"
+  data-cryptos="<%= cryptos.to_json %>">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalCalculatorLabel"><%= t(".title") %></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "calculator_form", locals: {
+          cryptos: cryptos,
+          cryptos_for_select: cryptos_for_select
+        } %>
+
+        <%= render "calculator_table" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= t(".close") %></button>
+      </div>
+    </div>
+  </div>
+</div>

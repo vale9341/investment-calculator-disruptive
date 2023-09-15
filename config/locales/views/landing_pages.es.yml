@@ -1,0 +1,23 @@
+es:
+  landing_pages:
+    index:
+      title: Precios de criptomonedas
+      name: Nombre
+      price: Precio(USD)
+      percentage_monthly: Porcentaje mensual
+      modal_calculator: Calculadora
+    modal_calculator:
+      title: Calculadora de inversión
+      close: Cerrar
+    calculator_form:
+      title: Calculadora de inversión
+      amount: Monto a financiar(USD)
+      calculate: Calcular
+      crypto: Cryptomoneda
+    calculator_table:
+      month: Mes
+      amount_invested: Monto invertido
+      interest_rate: Tasa de Interés
+      Interest_generated: Interés generado
+      accumulated_capital: Capital acumulado
+      amount_crypto: Monto en crypto
