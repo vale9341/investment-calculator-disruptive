@@ -7,7 +7,7 @@
       </button>
     </div>
   </div>
-  <table class="table caption-top mt-4">
+  <table class="table caption-top mt-4 text-center">
     <thead>
       <tr>
         <th><%= t(".name") %></th>
@@ -19,17 +19,20 @@
       <% cryptos.each do |crypto| %>
         <tr class="m-2">
           <td>
-            <div class="row">
-              <div class="col-md-2 mt-2">
-                <img src="<%= crypto["url"] %>" alt="<%= crypto["asset_id"] %>">
+            <div class="d-flex justify-content-center">
+              <div class="row">
+                <div class="col-md-4 mt-2">
+                  <img src="<%= crypto["url"] %>" alt="<%= crypto["asset_id"] %>">
+                </div>
+                <div class="col-md-4">
+                  <p class="fw-lighter">
+                    <strong><%= crypto["asset_name"] %></strong>
+                    <br>
+                    <%= crypto["asset_id"] %>
+                  </p>
+                </div>
               </div>
-              <div class="col-md-10">
-                <p class="fw-lighter">
-                  <strong><%= crypto["asset_name"] %></strong>
-                  <br>
-                  <%= crypto["asset_id"] %>
-                </p>
-              </div>
+              
             </div>
           </td>
           <td><%= number_to_currency(crypto["rate"] || 0) %></td>
