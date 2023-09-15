@@ -8,6 +8,8 @@ class ModalCalculator {
     $amountInput = $form.find("#amount")
     $cryptoSelect = $form.find("#crypto")
     $btnCalculate = $form.find("#btn-calculate")
+    $btnDownloadCsv = $modal.find("#export-csv")
+    $btnDownloadJson = $modal.find("#export-json")
     $btnCalculate.on("click", function(){ _this.tableFilling() })
   }
 
@@ -15,7 +17,7 @@ class ModalCalculator {
     tbody = $tableInformation.find("tbody")
     tbody.empty()
     investments = this.calculateInvestment()
-    
+    this.enableDownloadReport(investments)
     investments.forEach(investment => {
       tbody.append(this.tableRow(investment))
     })
@@ -65,6 +67,41 @@ class ModalCalculator {
 
   findCrypto(asset_id){
     return $cryptos.find((crypto) => crypto["asset_id"] == asset_id)
+  }
+
+  enableDownloadReport(investments){
+    this.enableCsvDownload(investments)
+    this.enableJsonDownload(investments)
+  }
+
+  enableCsvDownload(investments){
+    let dataCsv = []
+    let titleKeys = [ "Mes", "Monto invertido", "Tasa de Interes", "Interes generado", "Capital acumulado", "Monto en Crypto" ]
+    dataCsv.push(titleKeys)
+    
+    investments.forEach(investment => {
+      dataCsv.push(Object.values(investment))  
+    })
+    
+    let csvContent = ''
+
+    dataCsv.forEach(row => {
+      csvContent += row.join(',') + '\n'
+    })
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8,' })
+    const objUrl = URL.createObjectURL(blob)
+
+    $btnDownloadCsv.removeAttr("hidden")
+    $btnDownloadCsv.attr('href', objUrl)
+    $btnDownloadCsv.attr('download', 'calculator.csv')
+  }
+
+  enableJsonDownload(investments){
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(investments));
+    $btnDownloadJson.removeAttr("hidden")
+    $btnDownloadJson.attr('href', dataStr)
+    $btnDownloadJson.attr('download', 'calculator.json')
   }
 }
 

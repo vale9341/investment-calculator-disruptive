@@ -9,6 +9,8 @@ es:
     modal_calculator:
       title: Calculadora de inversión
       close: Cerrar
+      export_csv: Exportar a CSV
+      export_json: Exportar a JSON
     calculator_form:
       title: Calculadora de inversión
       amount: Monto a financiar(USD)

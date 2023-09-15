@@ -11,7 +11,14 @@
           cryptos: cryptos,
           cryptos_for_select: cryptos_for_select
         } %>
-
+        <div class="row">
+          <div class="col-md-3">
+            <a href="#" class="btn btn-primary mt-4 form-control" id="export-csv" hidden><%= t(".export_csv") %></a>
+          </div>
+          <div class="col-md-3">
+            <a href="#" class="btn btn-primary mt-4 form-control" id="export-json" hidden><%= t(".export_json") %></a>
+          </div>
+        </div>
         <%= render "calculator_table" %>
       </div>
       <div class="modal-footer">
